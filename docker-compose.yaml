@@ -17,10 +17,10 @@ services:
    
   php_service:
     container_name: 'apache_server'
-    build: ./conf
+    build: ./
     volumes:
       # Montamos nuestra web desde fuera en el directorio web del contenedor
-      - ./api/:/var/www/html
+      - ./web/:/var/www/html
     expose:
       - 80
     ports:
