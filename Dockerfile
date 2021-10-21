@@ -36,13 +36,13 @@ RUN a2enmod rewrite
 
 #RUN printf "#!/bin/bash\nmv /codeigniter4 /var/www/html\n/usr/sbin/apache2ctl -D FOREGROUND" > /startScript.sh
 #RUN chmod +x /startScript.sh
-RUN mkdir -p /var/www/html/otbapi
-RUN chmod -R 0777 /var/www/html/otbapi
+#RUN mkdir -p /var/www/html/otbapi
+RUN chmod -R 0777 /var/www/html
 
 RUN apt-get clean \
     && rm -r /var/lib/apt/lists/*
     
 EXPOSE 80
-VOLUME ["/var/www/html", "/var/log/apache2", "/etc/apache2"]
+#VOLUME ["/var/www/html", "/var/log/apache2", "/etc/apache2"]
 
 #CMD ["bash", "/startScript.sh"]
