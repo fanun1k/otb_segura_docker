@@ -46,3 +46,9 @@ EXPOSE 80
 #VOLUME ["/var/www/html", "/var/log/apache2", "/etc/apache2"]
 
 #CMD ["bash", "/startScript.sh"]
+
+FROM mariadb:latest
+
+RUN mysql -u root -p
+RUN root
+RUN source /var/lib/mysql/otb_segura.sql

@@ -1,0 +1,5 @@
+FROM mariadb:latest
+
+RUN mysql -u root -p
+RUN root
+RUN source /var/lib/mysql/otb_segura.sql

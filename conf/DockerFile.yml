@@ -1,6 +1,0 @@
-FROM mariadb:10.5.5
-RUN mysql -u root -p root
-RUN USE otb_segura_db;
-RUN CREATE TABLE prueba(
-    Columna1 TINYINT
-);
