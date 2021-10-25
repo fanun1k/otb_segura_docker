@@ -2,13 +2,13 @@ version: "3"
  
 services:
   database:
-        image: mariadb:10.5.5
         container_name: 'database_mysql'
+        image: 'mariadb:latest'
         ports:
           - 3306:3306
         volumes:
-          - ./mysqlVol/mysql:/var/lib/mysql
-          - ./mysqlVol/logs/mysql:/var/log/mysql
+          - ./data/mysqlVol/mysql:/var/lib/mysql
+          - ./data/mysqlVol/logs/mysql:/var/log/mysql
         environment:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: otb_segura_db
@@ -20,10 +20,10 @@ services:
     build: ./
     volumes:
       # Montamos nuestra web desde fuera en el directorio web del contenedor
-      - ./web/:/var/www/html
+      - ./html:/var/www/html
     expose:
       - 80
     ports:
       - 80:80
-    links: 
+    depends_on: 
       - database
